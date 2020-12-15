@@ -1,5 +1,5 @@
-import scss from 'rollup-plugin-scss'
 import typescript from '@rollup/plugin-typescript';
+import scss from 'rollup-plugin-scss'
 import pkg from './package.json';
 
 export default [{
@@ -10,10 +10,12 @@ export default [{
     format: 'umd'
   },
   plugins: [
+    typescript({
+      tsconfig: false // For some reason it doesn't take the tsconfig into account
+    }),
     scss({
       output: 'dist/styles.css',
     }),
-    typescript()
   ]
 }, {
   input: 'src/emails-input.ts',

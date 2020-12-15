@@ -1,0 +1,30 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!--<link rel="stylesheet" href="css/normalize.css">-->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+  <link rel="stylesheet" href="./../dist/styles.css">
+</head>
+
+<body>
+  <p>Hello world! This is HTML5 Boilerplate.</p>
+  <div style="width: 550px; height: 200px; margin: auto;">
+    <div id="emails-input">
+    </div>
+  </div>
+
+  <!--<script src="js/vendor/modernizr-{{MODERNIZR_VERSION}}.min.js"></script>-->
+  <script src="./../dist/emails-input.umd.js"></script>
+  <script>
+    var inputContainerNode = document.querySelector('#emails-input');
+    var emailsInput = EmailsInput(inputContainerNode);
+  </script>
+</body>
+
+</html>
