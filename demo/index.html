@@ -17,13 +17,22 @@
   <div style="width: 550px; height: 200px; margin: auto;">
     <div id="emails-input">
     </div>
+
+    <br />
+
+    <div id="emails-input2">
+    </div>
+
+    <button onclick="console.log(emailsInput.value);">Ding</button>
   </div>
 
   <!--<script src="js/vendor/modernizr-{{MODERNIZR_VERSION}}.min.js"></script>-->
   <script src="./../dist/emails-input.umd.js"></script>
   <script>
     var inputContainerNode = document.querySelector('#emails-input');
-    var emailsInput = EmailsInput(inputContainerNode);
+    var inputContainerNode2 = document.querySelector('#emails-input2');
+    var emailsInput = new EmailsInput(inputContainerNode);
+    var emailsInput2 = new EmailsInput(inputContainerNode2);
   </script>
 </body>
 

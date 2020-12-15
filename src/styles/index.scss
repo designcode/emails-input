@@ -1,0 +1,47 @@
+$border-color: #C3C2CF;
+$capsule-color: rgba(#6699FF, 0.2);
+$capsule-color-invalid: #D92929;
+$text-color: #050038;
+
+.emails-input {
+  border: 1px solid $border-color;
+  border-radius: 4px;
+  padding: 10px;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  color: $text-color;
+
+  .email-pill {
+    display: inline;
+    margin: 5px;
+    padding: 5px 10px;
+    border-radius: 100px;
+    border: none;
+    float: left;
+
+    &:focus {
+      border: none;
+      outline: none;
+    }
+
+    &.valid-pill {
+      background-color: $capsule-color;
+    }
+
+    &.invalid-pill {
+      border-radius: 0;
+      border-bottom: 1px dashed $capsule-color-invalid;
+    }
+
+    .email-pill-delete {
+      float: right;
+      width: 8px;
+      height: 8px;
+      color: $text-color;
+      text-decoration: none;
+      margin-left: 8px;
+      cursor: pointer;
+    }
+  }
+}
