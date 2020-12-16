@@ -1,0 +1,33 @@
+.emails-input {
+  border: 1px solid #C3C2CF;
+  background-color: #FFFFFF;
+  border-radius: 4px;
+  padding: 0px;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  color: #050038; }
+  .emails-input .email-pill {
+    display: inline;
+    margin: 5px;
+    padding: 5px 10px;
+    border-radius: 100px;
+    border: none;
+    float: left;
+    height: 32px; }
+    .emails-input .email-pill:focus {
+      border: none;
+      outline: none; }
+    .emails-input .email-pill.valid-pill {
+      background-color: rgba(102, 153, 255, 0.2); }
+    .emails-input .email-pill.invalid-pill {
+      border-radius: 0;
+      border-bottom: 1px dashed #D92929; }
+    .emails-input .email-pill .email-pill-delete {
+      float: right;
+      width: 8px;
+      height: 8px;
+      color: #050038;
+      text-decoration: none;
+      margin-left: 8px;
+      cursor: pointer; }
