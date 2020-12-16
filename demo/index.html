@@ -9,30 +9,60 @@
 
   <!--<link rel="stylesheet" href="css/normalize.css">-->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="./../dist/styles.css">
 </head>
 
 <body>
-  <p>Hello world! This is HTML5 Boilerplate.</p>
-  <div style="width: 550px; height: 200px; margin: auto;">
-    <div id="emails-input">
+  
+  <div class="form-container">
+    <div class="input-container">
+      <h3>Share <span class="strong">Board name</span> with others</h3>
+      <div class="email-input-container">
+        <div id="emails-input"></div>
+      </div>
     </div>
-
-    <br />
-
-    <div id="emails-input2">
+    <div class="form-footer">
+      <button onclick="addEmail()" class="btn btn-primary mr">Add Email</button>
+      <button onclick="getValidEmailsCount()" class="btn btn-primary">Get Emails Count</button>
     </div>
+  </div>
 
-    <button onclick="console.log(emailsInput.value);">Ding</button>
+  <div class="form-container form-container-2">
+    <div id="emails-input2"></div>
+    <ul id="email-list" class="mt"></ul>
+    <button onclick="getEmails()" class="btn btn-primary mt">Get Emails</button>
   </div>
 
   <!--<script src="js/vendor/modernizr-{{MODERNIZR_VERSION}}.min.js"></script>-->
   <script src="./../dist/emails-input.umd.js"></script>
   <script>
     var inputContainerNode = document.querySelector('#emails-input');
-    var inputContainerNode2 = document.querySelector('#emails-input2');
     var emailsInput = new EmailsInput(inputContainerNode);
-    var emailsInput2 = new EmailsInput(inputContainerNode2);
+
+    var addEmail = function () {
+      var emails = ['hello@designcode.me', 'ivan@mail.ru', 'max@mail.ru'];
+      emailsInput.addEmail(emails[Math.floor(Math.random() * Math.floor(emails.length))])
+    }
+    
+    var getValidEmailsCount = function () {
+      var count = emailsInput.value.filter(function (email) {
+        return email.valid;
+      }).length;
+      alert('Correct Email Count is: ' + count);
+    }
+
+    var emailsInput2 = new EmailsInput(document.querySelector('#emails-input2'));
+    var getEmails = function () {
+      var emailList = document.querySelector('#email-list');
+      var list = '';
+      emailsInput2.value.forEach(function (email) {
+        list += '<li>'+email.email+'</li>'
+      });
+      emailList.innerHTML = list;
+    }
   </script>
 </body>
 

@@ -2,11 +2,13 @@ $border-color: #C3C2CF;
 $capsule-color: rgba(#6699FF, 0.2);
 $capsule-color-invalid: #D92929;
 $text-color: #050038;
+$background-color: #FFFFFF;
 
 .emails-input {
   border: 1px solid $border-color;
+  background-color: $background-color;
   border-radius: 4px;
-  padding: 10px;
+  padding: 0px;
   width: 100%;
   height: 100%;
   overflow: auto;
@@ -19,6 +21,7 @@ $text-color: #050038;
     border-radius: 100px;
     border: none;
     float: left;
+    height: 32px;
 
     &:focus {
       border: none;

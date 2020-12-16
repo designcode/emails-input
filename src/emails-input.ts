@@ -36,11 +36,15 @@ class EmailsInput {
     element.appendChild(emailInput);
   }
 
-  get value(): EmailAddresses [] {
+  get emailElements(): HTMLElement[] {
     const emailElements = Array.prototype.slice.call(this.element.children);
-    emailElements.pop()
-    
-    const emailAddresses = emailElements.map(
+    emailElements.pop();
+
+    return emailElements;
+  }
+
+  get value(): EmailAddresses [] {
+    const emailAddresses = this.emailElements.map(
       (emailElement: HTMLElement) => ({
         email: emailElement.children[0].innerHTML,
         valid: emailElement.classList.contains('valid-pill')
@@ -50,12 +54,26 @@ class EmailsInput {
     return emailAddresses;
   }
 
+  get valid(): boolean {
+    return this.emailElements.every(
+      (emailElement: HTMLElement) => emailElement.classList.contains('valid-pill')
+    );
+  }
+
+  getValue(): EmailAddresses [] {
+    return this.value;
+  }
+
+  addEmail(email: string): void {
+    this.setEmail(email);
+  }
+
   private onInput(event: Event): void {
     const isFinished = ((event as KeyboardEvent).keyCode === 13 || (event as KeyboardEvent).keyCode === 188);
     const emailElement = (event.target as HTMLInputElement);
     if( isFinished && emailElement.value !== '') {
       event.preventDefault();
-      this.addEmail(emailElement.value);
+      this.setEmail(emailElement.value);
       emailElement.value = '';
     }
   }
@@ -65,9 +83,7 @@ class EmailsInput {
     setTimeout(() => {
       const emailElement = (event.target as HTMLInputElement);
       const emails = emailElement.value.split(',');
-      // tslint:disable-next-line: no-console
-      console.log(emails);
-      emails.forEach((email: string) => this.addEmail(email.trim()));
+      emails.forEach((email: string) => this.setEmail(email.trim()));
       emailElement.value = '';
     });
   }
@@ -75,12 +91,12 @@ class EmailsInput {
   private onBlur(event: Event): void {
     const emailElement = (event.target as HTMLInputElement);
     if (emailElement.value !== '') {
-      this.addEmail(emailElement.value);
+      this.setEmail(emailElement.value);
       emailElement.value = '';
     }
   }
   
-  private addEmail(email: string): void {
+  private setEmail(email: string): void {
     const isValid = isValidEmail(email);
 
     const emailPill = createElement('span', {

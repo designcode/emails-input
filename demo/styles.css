@@ -1,0 +1,58 @@
+body {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 12px;
+  color: #050038;
+}
+
+.form-container {
+  background: #FFFFFF;
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  width: 550px;
+  margin: 50px auto;
+}
+
+.input-container {
+  width: 100%;
+  height: 204px;
+  background: #F8F8F7;
+  padding: 32px 50px 24px 50px;
+  display: flex;
+  flex-direction: column;
+}
+
+.email-input-container {
+  flex-grow: 1;
+  overflow: auto;
+}
+
+h3 {
+  font-size: 20px;
+  font-weight: 400;
+  margin-bottom: 24px;
+}
+
+h3 .strong {
+  font-weight: 700;
+}
+
+.email-pill {
+  font-size: 14px;
+}
+
+.form-footer {
+  background-color: #fff;
+  padding: 24px 50px 32px 50px;
+}
+
+.mr {
+  margin-right: 10px;
+}
+
+.mt {
+  margin-top: 20px;
+}
+
+.form-container-2 {
+  padding: 25px;
+}
