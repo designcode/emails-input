@@ -54,7 +54,9 @@
       alert('Correct Email Count is: ' + count);
     }
 
-    var emailsInput2 = new EmailsInput(document.querySelector('#emails-input2'));
+    var emailsInput2 = new EmailsInput(document.querySelector('#emails-input2'), {
+      placeholder: 'agregar más personas'
+    });
     var getEmails = function () {
       var emailList = document.querySelector('#email-list');
       var list = '';

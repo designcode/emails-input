@@ -11,22 +11,11 @@ export default [{
   },
   plugins: [
     typescript({
+      target: 'es5',
       tsconfig: false // For some reason it doesn't take the tsconfig into account
     }),
     scss({
       output: 'dist/styles.css',
     }),
-  ]
-}, {
-  input: 'src/emails-input.ts',
-  output: [
-    { file: pkg.main, format: 'cjs' },
-    { file: pkg.module, format: 'es' }
-  ],
-  plugins: [
-    scss({
-      output: 'dist/styles.css',
-    }),
-    typescript()
   ]
 }];
